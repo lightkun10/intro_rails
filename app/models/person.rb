@@ -1,5 +1,11 @@
 class Person < ApplicationRecord
   # must have name
   # ensure no person with the exact same name exist
-  validates :name, presence: true
+  validates :name, :house, presence: true
+
+  belongs_to(:house, {
+    primary_key: :id,
+    foreign_key: :house_id,
+    class_name: :House
+  })
 end
